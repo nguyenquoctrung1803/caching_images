@@ -64,7 +64,6 @@ class NetworkManager {
     /// Perform GET request with comprehensive error handling
     /// - Parameters:
     ///   - urlString: The URL string for the request
-    ///   - headers: Optional HTTP headers
     ///   - completion: Completion handler with Result type
     func get(urlString: String,
              completion: @escaping NetworkCompletion<Data>) {
@@ -113,6 +112,56 @@ class NetworkManager {
         task.resume()
     }
     
+    
+    func downloadImage(imageURL: String, completion: @escaping NetworkCompletion<Data>) {
+        // Validate URL
+        guard let url = URL(string: imageURL) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.timeoutInterval = 30
+        request.cachePolicy = .returnCacheDataElseLoad
+        
+        // Perform download task
+        let task = session.downloadTask(with: request) { [weak self] localURL, response, error in
+            // Check for network errors
+            if let error = error {
+                self?.handleNetworkError(error, completion: completion)
+                return
+            }
+            
+            // Validate HTTP response
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+            
+            // Check status code
+            guard (200...299).contains(httpResponse.statusCode) else {
+                completion(.failure(.serverError(statusCode: httpResponse.statusCode)))
+                return
+            }
+            
+            // Check local URL
+            guard let localURL = localURL else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            // Read data from local file
+            do {
+                let data = try Data(contentsOf: localURL)
+                completion(.success(data))
+            } catch {
+                completion(.failure(.networkFailure(error)))
+            }
+        }
+        
+        task.resume()
+    }
     
     // MARK: - Error Handling
     private func handleNetworkError(_ error: Error, completion: @escaping NetworkCompletion<Data>) {

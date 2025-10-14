@@ -23,6 +23,17 @@ class ListImagesItemTableViewCell: UITableViewCell {
     }
     
     func configure(obj: ListImagesDTO) {
+        self.mainImage.image = nil
+        CachingImagesManager.shared.setImages(url: obj.downloadUrl) { data in
+            guard let data = data, let imageNetWork = UIImage(data: data) else {
+                print("Failed to create image from data for URL: \(obj.downloadUrl)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.mainImage.image = imageNetWork
+            }
+        }
         self.lblAuthor.text = obj.author
         self.lblImageSize.text = "Size: \(obj.width)x\(obj.height)"
     }

@@ -31,6 +31,7 @@
 		184F0B4F2E9EB2E300434FFE /* ListImagesItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B4C2E9EB2E300434FFE /* ListImagesItemTableViewCell.swift */; };
 		184F0B542E9EB62E00434FFE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B532E9EB61F00434FFE /* NetworkManager.swift */; };
 		184F0B562E9EBA0B00434FFE /* EndpointsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B552E9EB9FD00434FFE /* EndpointsConstants.swift */; };
+		184F0B592E9EC2B700434FFE /* CachingImagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B582E9EC2AE00434FFE /* CachingImagesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		184F0B4D2E9EB2E300434FFE /* ListImagesItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListImagesItemTableViewCell.xib; sourceTree = "<group>"; };
 		184F0B532E9EB61F00434FFE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		184F0B552E9EB9FD00434FFE /* EndpointsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointsConstants.swift; sourceTree = "<group>"; };
+		184F0B582E9EC2AE00434FFE /* CachingImagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingImagesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		184F0B272E9EA3A000434FFE /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				184F0B572E9EC29000434FFE /* CachingImages */,
 				184F0B522E9EB61A00434FFE /* Network */,
 			);
 			path = Infrastructure;
@@ -314,6 +317,14 @@
 				184F0B532E9EB61F00434FFE /* NetworkManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		184F0B572E9EC29000434FFE /* CachingImages */ = {
+			isa = PBXGroup;
+			children = (
+				184F0B582E9EC2AE00434FFE /* CachingImagesManager.swift */,
+			);
+			path = CachingImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +469,7 @@
 			files = (
 				184F0B542E9EB62E00434FFE /* NetworkManager.swift in Sources */,
 				184F0B472E9EAB4700434FFE /* ViewControllerConstants.swift in Sources */,
+				184F0B592E9EC2B700434FFE /* CachingImagesManager.swift in Sources */,
 				184F0B292E9EA46A00434FFE /* Utility.swift in Sources */,
 				184F0B392E9EA5BE00434FFE /* ListImagesViewController.swift in Sources */,
 				184F0B562E9EBA0B00434FFE /* EndpointsConstants.swift in Sources */,
