@@ -21,6 +21,11 @@ class ListImagesItemTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
     }
+    
+    func configure(obj: ListImagesDTO) {
+        self.lblAuthor.text = obj.author
+        self.lblImageSize.text = "Size: \(obj.width)x\(obj.height)"
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

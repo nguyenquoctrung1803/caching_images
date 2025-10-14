@@ -23,7 +23,8 @@ class ListImagesViewController: MainViewController {
     }
     
     func bindViewModel() {
-        
+        self.viewModel.delegate = self
+        self.viewModel.getListImages()
     }
     
     func initLayout() {
@@ -48,6 +49,26 @@ class ListImagesViewController: MainViewController {
     }
 }
 
+extension ListImagesViewController: ListImagesViewModelDelegate {
+    func reloadTableView() {
+        self.tableView.reloadData()
+    }
+    
+    func endRefreshing() {
+        if let baseRefreshControl = self.baseRefreshControl {
+            baseRefreshControl.endRefreshing()
+        }
+    }
+    
+    func showLoading() {
+        
+    }
+    
+    func hideLoading() {
+        
+    }
+}
+
 extension ListImagesViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -58,12 +79,20 @@ extension ListImagesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.viewModel.listImages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Prevent Crashing
+        if indexPath.row >= self.viewModel.listImages.count {
+            return UITableViewCell()
+        }
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: kListImagesItemTableViewCell) as? ListImagesItemTableViewCell {
             cell.selectionStyle = .none
+            if let obj = self.viewModel.getObject(index: indexPath.row) {
+                cell.configure(obj: obj)
+            }
             return cell
         }
         return UITableViewCell()
