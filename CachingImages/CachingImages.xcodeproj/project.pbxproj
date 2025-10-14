@@ -22,6 +22,11 @@
 		184F0B362E9EA59F00434FFE /* ListImages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184F0B352E9EA59F00434FFE /* ListImages.storyboard */; };
 		184F0B392E9EA5BE00434FFE /* ListImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B382E9EA5BE00434FFE /* ListImagesViewController.swift */; };
 		184F0B3C2E9EA5FB00434FFE /* ListImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B3B2E9EA5F500434FFE /* ListImagesViewModel.swift */; };
+		184F0B3F2E9EA78900434FFE /* UIApplication+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B3E2E9EA77E00434FFE /* UIApplication+Extenstion.swift */; };
+		184F0B412E9EA84700434FFE /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B402E9EA84200434FFE /* StringConstants.swift */; };
+		184F0B432E9EA85900434FFE /* StoryBoardConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B422E9EA85000434FFE /* StoryBoardConstants.swift */; };
+		184F0B452E9EAAB500434FFE /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B442E9EAAAB00434FFE /* MainNavigationController.swift */; };
+		184F0B472E9EAB4700434FFE /* ViewControllerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184F0B462E9EAB3F00434FFE /* ViewControllerConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,11 @@
 		184F0B352E9EA59F00434FFE /* ListImages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListImages.storyboard; sourceTree = "<group>"; };
 		184F0B382E9EA5BE00434FFE /* ListImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesViewController.swift; sourceTree = "<group>"; };
 		184F0B3B2E9EA5F500434FFE /* ListImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImagesViewModel.swift; sourceTree = "<group>"; };
+		184F0B3E2E9EA77E00434FFE /* UIApplication+Extenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extenstion.swift"; sourceTree = "<group>"; };
+		184F0B402E9EA84200434FFE /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		184F0B422E9EA85000434FFE /* StoryBoardConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardConstants.swift; sourceTree = "<group>"; };
+		184F0B442E9EAAAB00434FFE /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		184F0B462E9EAB3F00434FFE /* ViewControllerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +123,7 @@
 			children = (
 				184F0B012E9EA0C400434FFE /* AppDelegate.swift */,
 				184F0B022E9EA0C400434FFE /* SceneDelegate.swift */,
+				184F0B442E9EAAAB00434FFE /* MainNavigationController.swift */,
 				184F0B072E9EA0C400434FFE /* LaunchScreen.storyboard */,
 			);
 			path = Application;
@@ -179,6 +190,7 @@
 		184F0B1E2E9EA13000434FFE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				184F0B3E2E9EA77E00434FFE /* UIApplication+Extenstion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -186,6 +198,9 @@
 		184F0B1F2E9EA15800434FFE /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				184F0B462E9EAB3F00434FFE /* ViewControllerConstants.swift */,
+				184F0B422E9EA85000434FFE /* StoryBoardConstants.swift */,
+				184F0B402E9EA84200434FFE /* StringConstants.swift */,
 				184F0B282E9EA46600434FFE /* Utility.swift */,
 			);
 			path = Common;
@@ -420,14 +435,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184F0B472E9EAB4700434FFE /* ViewControllerConstants.swift in Sources */,
 				184F0B292E9EA46A00434FFE /* Utility.swift in Sources */,
 				184F0B392E9EA5BE00434FFE /* ListImagesViewController.swift in Sources */,
 				184F0B3C2E9EA5FB00434FFE /* ListImagesViewModel.swift in Sources */,
+				184F0B432E9EA85900434FFE /* StoryBoardConstants.swift in Sources */,
 				184F0B102E9EA0C400434FFE /* AppDelegate.swift in Sources */,
 				184F0B302E9EA52700434FFE /* ListImagesRepositories.swift in Sources */,
+				184F0B452E9EAAB500434FFE /* MainNavigationController.swift in Sources */,
 				184F0B112E9EA0C400434FFE /* SceneDelegate.swift in Sources */,
 				184F0B122E9EA0C400434FFE /* MainViewController.swift in Sources */,
 				184F0B342E9EA56A00434FFE /* ListImagesDTO.swift in Sources */,
+				184F0B412E9EA84700434FFE /* StringConstants.swift in Sources */,
+				184F0B3F2E9EA78900434FFE /* UIApplication+Extenstion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

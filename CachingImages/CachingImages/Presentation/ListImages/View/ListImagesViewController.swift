@@ -7,8 +7,7 @@
 
 import UIKit
 
-let kListImagesViewController = "ListImagesViewController"
-class ListImagesViewController: UIViewController {
+class ListImagesViewController: MainViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
