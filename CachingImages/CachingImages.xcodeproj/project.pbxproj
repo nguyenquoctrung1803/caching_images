@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1807C4582E9FCB58005633FF /* StringExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1807C4572E9FCB54005633FF /* StringExtenstion.swift */; };
+		1807C45B2E9FCBAE005633FF /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1807C45A2E9FCBAB005633FF /* LoadingView.swift */; };
 		184F0B0C2E9EA0C400434FFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 184F0B042E9EA0C400434FFE /* Assets.xcassets */; };
 		184F0B0E2E9EA0C400434FFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184F0B072E9EA0C400434FFE /* LaunchScreen.storyboard */; };
 		184F0B0F2E9EA0C400434FFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184F0B092E9EA0C400434FFE /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1807C4572E9FCB54005633FF /* StringExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtenstion.swift; sourceTree = "<group>"; };
+		1807C45A2E9FCBAB005633FF /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		184F0ACB2E9E9E3700434FFE /* CachingImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CachingImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184F0AE12E9E9E3800434FFE /* CachingImagesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CachingImagesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		184F0AEB2E9E9E3900434FFE /* CachingImagesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CachingImagesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1807C4592E9FCBA5005633FF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1807C45A2E9FCBAB005633FF /* LoadingView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		184F0AC22E9E9E3700434FFE = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +187,7 @@
 		184F0B1B2E9EA0D900434FFE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1807C4592E9FCBA5005633FF /* Common */,
 				184F0B2E2E9EA50200434FFE /* ListImages */,
 				184F0B202E9EA18D00434FFE /* Main */,
 			);
@@ -200,6 +213,7 @@
 		184F0B1E2E9EA13000434FFE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1807C4572E9FCB54005633FF /* StringExtenstion.swift */,
 				184F0B3E2E9EA77E00434FFE /* UIApplication+Extenstion.swift */,
 			);
 			path = Extensions;
@@ -474,6 +488,7 @@
 				184F0B392E9EA5BE00434FFE /* ListImagesViewController.swift in Sources */,
 				184F0B562E9EBA0B00434FFE /* EndpointsConstants.swift in Sources */,
 				184F0B3C2E9EA5FB00434FFE /* ListImagesViewModel.swift in Sources */,
+				1807C4582E9FCB58005633FF /* StringExtenstion.swift in Sources */,
 				184F0B432E9EA85900434FFE /* StoryBoardConstants.swift in Sources */,
 				184F0B102E9EA0C400434FFE /* AppDelegate.swift in Sources */,
 				184F0B302E9EA52700434FFE /* ListImagesRepositories.swift in Sources */,
@@ -483,6 +498,7 @@
 				184F0B342E9EA56A00434FFE /* ListImagesDTO.swift in Sources */,
 				184F0B412E9EA84700434FFE /* StringConstants.swift in Sources */,
 				184F0B4F2E9EB2E300434FFE /* ListImagesItemTableViewCell.swift in Sources */,
+				1807C45B2E9FCBAE005633FF /* LoadingView.swift in Sources */,
 				184F0B3F2E9EA78900434FFE /* UIApplication+Extenstion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
