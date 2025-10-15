@@ -24,26 +24,26 @@ class ListImagesItemTableViewCell: UITableViewCell {
         
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.mainImage.image = nil
+        self.idImage = nil
+    }
+    
     func configure(obj: ListImagesDTO) {
         self.idImage = obj.id
         self.lblAuthor.text = obj.author
         self.lblImageSize.text = "Size: \(obj.width)x\(obj.height)"
-        if obj.height > 3000 {
-            self.csHeigtMainImage.constant = 300
-        }else{
-            self.csHeigtMainImage.constant = 200
-        }
-        self.mainImage.image = nil
-        CachingImagesManager.shared.setImages(url: obj.downloadUrl) { data in
-            guard let data = data, let imageNetWork = UIImage(data: data) else {
-                print("Failed to create image from data for URL: \(obj.downloadUrl)")
-                return
-            }
+        
+        let targetHeight: CGFloat = obj.height > 3000 ? 300 : 200
+        self.csHeigtMainImage.constant = targetHeight
+        
+        // Load and decode image
+        CachingImagesManager.shared.setImages(url: obj.downloadUrl) { [weak self] decodedImage in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                if let idImage = self.idImage {
-                    if idImage == obj.id {
-                        self.mainImage.image = imageNetWork
-                    }
+                if self.idImage == obj.id {
+                    self.mainImage.image = decodedImage
                 }
             }
         }
