@@ -73,6 +73,7 @@ class ListImagesViewModel {
     
     //MARK: Get Data
     func getListImages() {
+        self.showLoading()
         self.repositories.getListImages(page: self.pageIndex, limit: self.limit) { values, error in
             if let error = error {
                 //Handle Logic Error Code In Here
@@ -90,10 +91,14 @@ class ListImagesViewModel {
             }
             
             self.reloadTableView()
+            
+            self.hideLoading()
         }
     }
     
     func pullToReresh() {
+        self.showLoading()
+        
         self.pageIndex = 1
         self.canLoadMore = true
         self.repositories.getListImages(page: self.pageIndex) { values, error in
@@ -114,6 +119,8 @@ class ListImagesViewModel {
             }
             
             self.endRefreshing()
+            
+            self.hideLoading()
         }
     }
     
@@ -127,6 +134,7 @@ class ListImagesViewModel {
             return
         }
         
+        self.showLoading()
         self.isLoadingLoadMore = true
         pageIndex += 1
         self.repositories.getListImages(page: self.pageIndex) { [weak self] values, error in
@@ -153,6 +161,8 @@ class ListImagesViewModel {
                     self.canLoadMore = false
                 }
                 
+                
+                self.hideLoading()
             }
         }
     }

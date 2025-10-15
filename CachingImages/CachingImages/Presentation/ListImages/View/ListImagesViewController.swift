@@ -130,11 +130,11 @@ extension ListImagesViewController: ListImagesViewModelDelegate {
     }
     
     func showLoading() {
-        
+        self.showLoadingIcon()
     }
     
     func hideLoading() {
-        
+        self.hideLoadingIcon()
     }
 }
 
