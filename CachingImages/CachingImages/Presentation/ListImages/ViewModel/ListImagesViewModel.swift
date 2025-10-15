@@ -36,7 +36,7 @@ class ListImagesViewModel {
     private func endRefreshing() {
         DispatchQueue.main.async {
             if let delegate = self.delegate {
-                delegate.reloadTableView()
+                delegate.endRefreshing()
             }
         }
     }
@@ -68,8 +68,29 @@ class ListImagesViewModel {
             
             if let values = values {
                 self.listImages = values
-                self.reloadTableView()
+            }else{
+                self.listImages.removeAll()
             }
+            
+            self.reloadTableView()
+        }
+    }
+    
+    func pullToReresh() {
+        self.pageIndex = 1
+        self.repositories.getListImages(page: self.pageIndex) { values, error in
+            if let error = error {
+                //Handle Logic Error Code In Here
+                print(error)
+            }
+            
+            if let values = values {
+                self.listImages = values
+            }else{
+                self.listImages.removeAll()
+            }
+            
+            self.endRefreshing()
         }
     }
     

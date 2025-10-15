@@ -54,6 +54,7 @@ class ListImagesViewController: MainViewController {
     override func pullToRefresh(_ sender: Any) {
         guard let refreshControl = sender as? UIRefreshControl else { return }
         refreshControl.beginRefreshing()
+        self.viewModel.pullToReresh()
     }
     
     // MARK: - Debounce Handler
@@ -116,6 +117,7 @@ extension ListImagesViewController: ListImagesViewModelDelegate {
         if let baseRefreshControl = self.baseRefreshControl {
             baseRefreshControl.endRefreshing()
         }
+        self.tableView.reloadData()
     }
     
     func showLoading() {
