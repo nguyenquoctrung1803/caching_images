@@ -21,8 +21,9 @@ class ListImagesViewModel {
     var delegate: ListImagesViewModelDelegate?
     
     //MARK: - Variables
-    var listImages: [ListImagesDTO] = []
+    private var listImages: [ListImagesDTO] = []
     var pageIndex: Int = 1
+    var keySearch: String?
     
     private func reloadTableView() {
         DispatchQueue.main.async {
@@ -72,14 +73,33 @@ class ListImagesViewModel {
         }
     }
     
+    func getListObjects() -> [ListImagesDTO] {
+        if let keySearch = self.keySearch {
+            return self.listImages.filter({ $0.author.lowercased().contains(keySearch.lowercased()) || $0.id.lowercased().contains(keySearch.lowercased()) })
+        }
+        return self.listImages
+    }
+    
+    //MARK: Utitliti
+    func applySearch(keySearch: String) {
+        if keySearch.isEmpty {
+            self.keySearch = nil
+        }else{
+            self.keySearch = keySearch
+        }
+        self.reloadTableView()
+    }
+    
     
     //MARK: Binding Data
     func getObject(index: Int) -> ListImagesDTO? {
-        if index < self.listImages.count {
-            return self.listImages[index]
+        if index < self.getListObjects().count {
+            return self.getListObjects()[index]
         }
         return nil
     }
+    
+    
     
     
 }
