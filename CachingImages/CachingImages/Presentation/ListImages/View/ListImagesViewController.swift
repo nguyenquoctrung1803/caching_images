@@ -16,7 +16,7 @@ class ListImagesViewController: MainViewController {
     private let viewModel: ListImagesViewModel = ListImagesViewModel()
     
     private var debounceTimer: Timer?
-    private let debounceInterval: TimeInterval = 2.0 // 2s debounce
+    private let debounceInterval: TimeInterval = 1.0 // 1s debounce
     
     private let allowedSpecialCharacters = "!@#$%^&*():.\""
     private let maxCharacterLimit = 15

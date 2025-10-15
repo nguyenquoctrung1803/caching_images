@@ -77,7 +77,7 @@ class NetworkManager {
         // Create request
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.timeoutInterval = 30
+        request.timeoutInterval = 45
         
         // Perform request
         let task = session.dataTask(with: request) { [weak self] data, response, error in
@@ -122,7 +122,7 @@ class NetworkManager {
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.timeoutInterval = 30
+        request.timeoutInterval = 60
         request.cachePolicy = .returnCacheDataElseLoad
         
         // Perform download task

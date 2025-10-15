@@ -35,15 +35,23 @@ class ListImagesItemTableViewCell: UITableViewCell {
         self.lblAuthor.text = obj.author
         self.lblImageSize.text = "Size: \(obj.width)x\(obj.height)"
         
-        let targetHeight: CGFloat = obj.height > 3000 ? 300 : 200
-        self.csHeigtMainImage.constant = targetHeight
+        // Calculate target size based on aspect ratio from ListImagesDTO
+        let imageViewWidth = self.mainImage.bounds.width > 0 ? self.mainImage.bounds.width : UIScreen.main.bounds.width
+        let aspectRatio = CGFloat(obj.height) / CGFloat(obj.width)
+        let targetHeight = imageViewWidth * aspectRatio
         
-        // Load and decode image
-        CachingImagesManager.shared.setImages(url: obj.downloadUrl) { [weak self] decodedImage in
+        // height will limit range (150-400)
+        let constrainedHeight = min(max(targetHeight, 150), 400)
+        self.csHeigtMainImage.constant = constrainedHeight
+        
+        let targetSize = CGSize(width: imageViewWidth, height: constrainedHeight)
+        
+        // Load, downsample and decode image
+        CachingImagesManager.shared.setImages(url: obj.downloadUrl, targetSize: targetSize) { [weak self] downsampledImage in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                if self.idImage == obj.id {
-                    self.mainImage.image = decodedImage
+            if self.idImage == obj.id {
+                DispatchQueue.main.async {
+                    self.mainImage.image = downsampledImage
                 }
             }
         }
