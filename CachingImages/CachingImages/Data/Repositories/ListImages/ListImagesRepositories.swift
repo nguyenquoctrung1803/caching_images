@@ -13,6 +13,8 @@ class ListImagesRepositories {
     func getListImages(page: Int, limit: Int = 100, completion: @escaping ([ListImagesDTO]?, Error?) -> Void) {
         let url = kGetPicsumsEndpoint + "?page=\(page)&limit=\(limit)"
         
+        print(url)
+        
         networkManager.get(urlString: url) { result in
             switch result {
             case .success(let data):

@@ -12,6 +12,7 @@ protocol ListImagesViewModelDelegate {
     func endRefreshing()
     func showLoading()
     func hideLoading()
+    func showErrorMessages(_text: String)
 }
 
 class ListImagesViewModel {
@@ -23,7 +24,11 @@ class ListImagesViewModel {
     //MARK: - Variables
     private var listImages: [ListImagesDTO] = []
     var pageIndex: Int = 1
+    var limit: Int = 100
     var keySearch: String?
+    
+    var canLoadMore: Bool = true
+    var isLoadingLoadMore: Bool = false
     
     private func reloadTableView() {
         DispatchQueue.main.async {
@@ -57,19 +62,31 @@ class ListImagesViewModel {
         }
     }
     
+    private func showErrorMessages(msg: String) {
+        DispatchQueue.main.async {
+            if let delegate = self.delegate {
+                delegate.showErrorMessages(_text: msg)
+            }
+        }
+    }
+    
     
     //MARK: Get Data
     func getListImages() {
-        self.repositories.getListImages(page: self.pageIndex) { values, error in
+        self.repositories.getListImages(page: self.pageIndex, limit: self.limit) { values, error in
             if let error = error {
                 //Handle Logic Error Code In Here
-                print(error)
+                self.showErrorMessages(msg: error.localizedDescription)
             }
             
             if let values = values {
                 self.listImages = values
             }else{
                 self.listImages.removeAll()
+            }
+            
+            if self.listImages.count < self.limit {
+                self.canLoadMore = false
             }
             
             self.reloadTableView()
@@ -78,10 +95,12 @@ class ListImagesViewModel {
     
     func pullToReresh() {
         self.pageIndex = 1
+        self.canLoadMore = true
         self.repositories.getListImages(page: self.pageIndex) { values, error in
             if let error = error {
                 //Handle Logic Error Code In Here
                 print(error)
+                self.showErrorMessages(msg: error.localizedDescription)
             }
             
             if let values = values {
@@ -90,7 +109,51 @@ class ListImagesViewModel {
                 self.listImages.removeAll()
             }
             
+            if self.listImages.count < self.limit {
+                self.canLoadMore = false
+            }
+            
             self.endRefreshing()
+        }
+    }
+    
+    // MARK: - Load More
+    func loadMoreImages() {
+        if !canLoadMore {
+            return
+        }
+        
+        if self.isLoadingLoadMore {
+            return
+        }
+        
+        self.isLoadingLoadMore = true
+        pageIndex += 1
+        self.repositories.getListImages(page: self.pageIndex) { [weak self] values, error in
+            guard let self = self else { return }
+            
+            self.isLoadingLoadMore = false
+            
+            if let values = values {
+                if let error = error {
+                    //Handle Logic Error Code In Here
+                    self.showErrorMessages(msg: error.localizedDescription)
+                    self.pageIndex -= 1
+                    return
+                }
+                
+                if !values.isEmpty {
+                    self.listImages.append(contentsOf: values)
+                    self.reloadTableView()
+                } else {
+                    self.pageIndex -= 1
+                }
+                
+                if values.count < self.limit {
+                    self.canLoadMore = false
+                }
+                
+            }
         }
     }
     
