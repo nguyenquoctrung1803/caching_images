@@ -28,6 +28,11 @@ class ListImagesItemTableViewCell: UITableViewCell {
         self.idImage = obj.id
         self.lblAuthor.text = obj.author
         self.lblImageSize.text = "Size: \(obj.width)x\(obj.height)"
+        if obj.height > 3000 {
+            self.csHeigtMainImage.constant = 300
+        }else{
+            self.csHeigtMainImage.constant = 200
+        }
         self.mainImage.image = nil
         CachingImagesManager.shared.setImages(url: obj.downloadUrl) { data in
             guard let data = data, let imageNetWork = UIImage(data: data) else {

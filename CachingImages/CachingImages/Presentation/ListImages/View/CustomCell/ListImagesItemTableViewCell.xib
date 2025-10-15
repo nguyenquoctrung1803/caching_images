@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,6 +23,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eJv-ei-bn6">
                                 <rect key="frame" x="0.0" y="0.0" width="657" height="168"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="168" id="1QQ-WO-LqK"/>
                                 </constraints>
@@ -39,21 +40,11 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIL-BV-s51">
-                                <rect key="frame" x="0.0" y="168" width="1" height="130"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="1" id="qTd-6f-iPl"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pIL-BV-s51" firstAttribute="top" secondItem="eJv-ei-bn6" secondAttribute="bottom" id="0UR-eg-XMW"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4Fh-Br-fPd" secondAttribute="bottom" constant="18" id="6jt-mU-SPr"/>
-                            <constraint firstItem="pIL-BV-s51" firstAttribute="leading" secondItem="o38-yh-P63" secondAttribute="leading" id="PtH-Aq-7Wj"/>
                             <constraint firstItem="4Fh-Br-fPd" firstAttribute="leading" secondItem="o38-yh-P63" secondAttribute="leading" constant="12" id="Qge-DA-vXC"/>
-                            <constraint firstAttribute="bottom" secondItem="pIL-BV-s51" secondAttribute="bottom" id="YD7-lt-4Iw"/>
                             <constraint firstItem="eJv-ei-bn6" firstAttribute="leading" secondItem="o38-yh-P63" secondAttribute="leading" id="a5l-Sm-Lck"/>
                             <constraint firstItem="4Fh-Br-fPd" firstAttribute="top" secondItem="kDh-Id-lLI" secondAttribute="bottom" id="ao4-tB-Rvf"/>
                             <constraint firstAttribute="trailing" secondItem="eJv-ei-bn6" secondAttribute="trailing" id="bx6-83-xkm"/>

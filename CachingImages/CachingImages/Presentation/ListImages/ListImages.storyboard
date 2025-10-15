@@ -45,7 +45,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gr1-hk-tN1">
-                                <rect key="frame" x="0.0" y="133" width="393" height="719"/>
+                                <rect key="frame" x="0.0" y="139" width="393" height="713"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -55,7 +55,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UmS-kn-wqU" secondAttribute="trailing" id="CIM-Qb-N0s"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gr1-hk-tN1" secondAttribute="trailing" id="Egt-vg-XkY"/>
                             <constraint firstItem="N4h-xK-HWd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="K5A-tu-mjS"/>
-                            <constraint firstItem="gr1-hk-tN1" firstAttribute="top" secondItem="UmS-kn-wqU" secondAttribute="bottom" id="KFd-QL-cAL"/>
+                            <constraint firstItem="gr1-hk-tN1" firstAttribute="top" secondItem="UmS-kn-wqU" secondAttribute="bottom" constant="6" id="KFd-QL-cAL"/>
                             <constraint firstItem="gr1-hk-tN1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PkL-fu-uM4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="N4h-xK-HWd" secondAttribute="trailing" id="QCX-u9-KjE"/>
                             <constraint firstItem="UmS-kn-wqU" firstAttribute="top" secondItem="N4h-xK-HWd" secondAttribute="bottom" constant="8" id="bmr-Hn-Tbk"/>
