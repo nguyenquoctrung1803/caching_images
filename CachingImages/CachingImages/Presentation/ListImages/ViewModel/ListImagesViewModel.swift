@@ -149,6 +149,7 @@ class ListImagesViewModel {
         }
         
         self.showLoading()
+        
         self.isLoadingLoadMore = true
         pageIndex += 1
         

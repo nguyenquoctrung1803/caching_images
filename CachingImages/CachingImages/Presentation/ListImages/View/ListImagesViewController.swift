@@ -217,23 +217,23 @@ extension ListImagesViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        // UITableView only moves in one direction, y axis
-//        let currentOffset = scrollView.contentOffset.y
-//        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-//
-//        if maximumOffset - currentOffset <= 12.0 + 8.0 {
-//            self.viewModel.loadMoreImages()
-//        }
-//    }
-    
-    // MARK: - Load More
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let lastItem = self.viewModel.getListObjects().count - 1
-        
-        // Trigger load more in 3rd last item
-        if indexPath.row >= lastItem - 2 {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        // UITableView only moves in one direction, y axis
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        if maximumOffset - currentOffset <= 6.0 {
             self.viewModel.loadMoreImages()
         }
     }
+    
+    // MARK: - Load More
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let lastItem = self.viewModel.getListObjects().count - 1
+//        
+//        // Trigger load more in 3rd last item
+//        if indexPath.row >= lastItem - 2 {
+//            self.viewModel.loadMoreImages()
+//        }
+//    }
 }
